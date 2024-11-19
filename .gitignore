@@ -1,0 +1,5 @@
+#ignore the bin folder
+*bin
+
+#ignore the gradle files/folders
+*gradle
