@@ -50,6 +50,9 @@ public class BadIOGUI {
         exercisePane.setLayout(new BoxLayout(exercisePane, BoxLayout.PAGE_AXIS));
         canvas.add(exercisePane, BorderLayout.CENTER);
         exercisePane.add(write);
+
+        final JButton read = new JButton("Read on file");
+        exercisePane.add(read, BoxLayout.Y_AXIS);
         /*
          * Handlers
          */
@@ -71,7 +74,18 @@ public class BadIOGUI {
                 }
             }
         });
+
+        read.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("sono un numero randomico");
+            }
+            
+        });
     }
+
+    
 
     private void display() {
         /*
