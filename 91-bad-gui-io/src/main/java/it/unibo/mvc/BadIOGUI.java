@@ -10,8 +10,12 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -79,7 +83,16 @@ public class BadIOGUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("sono un numero randomico");
+                try (InputStream is = new FileInputStream(PATH)) {
+                    int ch;
+                    while ((ch = is.read()) != (-1)){
+                        System.out.print((char)ch);
+                    }
+                    System.out.println("");
+                } catch (IOException e1) {
+                    JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
+                    e1.printStackTrace();
+                }
             }
             
         });
