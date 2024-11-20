@@ -2,6 +2,7 @@ package it.unibo.mvc;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 
 
 /**
@@ -10,7 +11,7 @@ import java.io.PrintStream;
 public class Controller {
     private String fName = "output.txt";
     private  String PATH = System.getProperty("user.home") + 
-    System.getProperty("file separator") + fName;
+    System.getProperty("file.separator") + fName;
 
     public String setFile(String nameFile){
        return this.fName = nameFile;
@@ -25,7 +26,7 @@ public class Controller {
     }
 
     public void saveString(String input){
-        try (PrintStream is = new PrintStream(this.PATH)){
+        try (PrintStream is = new PrintStream(this.PATH, StandardCharsets.UTF_8)){
             is.print(input);
         } catch (IOException e) {
             e.printStackTrace(); 

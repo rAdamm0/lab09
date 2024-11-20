@@ -8,6 +8,8 @@ import javax.swing.JTextArea;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * A very simple program using a graphical interface.
@@ -26,6 +28,15 @@ public final class SimpleGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         canva.add(save,BorderLayout.SOUTH);
         canva.add(text);
+
+        save.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                Controller co = new Controller();
+                co.saveString(text.getText());
+            }
+            
+        });
     }
     
 
