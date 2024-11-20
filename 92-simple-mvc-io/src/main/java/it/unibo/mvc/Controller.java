@@ -1,11 +1,8 @@
 package it.unibo.mvc;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
 
-import javax.swing.JOptionPane;
 
 /**
  * Application controller. Performs the I/O.
