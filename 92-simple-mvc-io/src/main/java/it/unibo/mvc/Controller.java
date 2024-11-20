@@ -11,7 +11,11 @@ import java.nio.charset.StandardCharsets;
 public class Controller {
     private String fName = "output.txt";
     private  String PATH = System.getProperty("user.home") + 
-    System.getProperty("file.separator") + fName;
+    System.getProperty("file.separator") + this.fName;
+
+    private void updatePath(){
+        PATH= System.getProperty("user.home") + System.getProperty("file.separator") + this.fName;
+    }
 
     public String setFile(String nameFile){
        return this.fName = nameFile;
@@ -22,6 +26,7 @@ public class Controller {
     }
 
     public String getPATH(){
+        updatePath();
         return this.PATH;
     }
 
