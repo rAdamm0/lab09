@@ -3,3 +3,6 @@
 
 #ignore the gradle files/folders
 *gradle
+
+#ignore the build folder
+*build
