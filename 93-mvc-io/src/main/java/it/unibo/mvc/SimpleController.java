@@ -1,9 +1,7 @@
 package it.unibo.mvc;
 
 import java.util.ArrayList;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -13,9 +11,11 @@ import java.io.IOException;
  */
 public final class SimpleController implements Controller {
 
+    private final ArrayList<String> his = new ArrayList<>();
+
     //private String current;
 
-    private String nameFile;
+    private String nameFile = "output.txt";
     private String PATH = System.getProperty("user.home")+System.getProperty("file.separator")+nameFile;
 
     private void updatePath(){
@@ -36,6 +36,7 @@ public final class SimpleController implements Controller {
         try(final BufferedWriter w = new BufferedWriter(new FileWriter(this.PATH))) {
             w.write(input);
             w.newLine();
+            his.add(input);
         } catch (IOException e) {
             e.getStackTrace();
         }
@@ -49,14 +50,17 @@ public final class SimpleController implements Controller {
 
     @Override
     public ArrayList<String> history() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'history'");
+        return his;
     }
 
     @Override
-    public void currentString() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'currentString'");
+    public String currentString() {
+        if(!his.isEmpty()){
+           String m = his.getLast().toString();
+           return m;
+        }else{
+            throw new IllegalStateException("No history detected");
+        }
     }
 
 }
