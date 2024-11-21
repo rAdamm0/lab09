@@ -13,6 +13,6 @@ public interface Controller {
 
     public ArrayList<String> history();
 
-    public void currentString();
+    public String currentString();
 
 }
