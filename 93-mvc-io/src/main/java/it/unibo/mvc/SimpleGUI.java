@@ -44,15 +44,26 @@ public final class SimpleGUI {
         canvas.add(history,BorderLayout.CENTER);
         canvas.add(buttons,BorderLayout.SOUTH);
 
+        
+
         print.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 control.setNextString(field.getText());
                 control.currentString();
-                
             }
             
+        });
+
+        showHistory.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0){
+                for(String s : control.history()){
+                    history.append(s);
+                    history.append("\n");
+                }
+            }
         });
     }
 
