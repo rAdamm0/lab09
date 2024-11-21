@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public interface Controller {
 
-    public String setNextString(String input);
+    public void setNextString(String input);
 
     public String nexString();
 

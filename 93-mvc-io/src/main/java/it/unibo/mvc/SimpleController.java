@@ -1,9 +1,11 @@
 package it.unibo.mvc;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 
 /**
  * 
@@ -11,7 +13,7 @@ import java.io.PrintStream;
  */
 public final class SimpleController implements Controller {
 
-    private String current;
+    //private String current;
 
     private String nameFile;
     private String PATH = System.getProperty("user.home")+System.getProperty("file.separator")+nameFile;
@@ -31,11 +33,11 @@ public final class SimpleController implements Controller {
 
     @Override
     public void setNextString(String input) {
-        try(PrintStream ps = new PrintStream(this.PATH, StandardCharsets.UTF_8)) {
-            ps.append(input);
+        try(final BufferedWriter w = new BufferedWriter(new FileWriter(this.PATH))) {
+            w.write(input);
+            w.newLine();
         } catch (IOException e) {
             e.getStackTrace();
-            System.err.println("ERROR in setNextString");
         }
     }
 
