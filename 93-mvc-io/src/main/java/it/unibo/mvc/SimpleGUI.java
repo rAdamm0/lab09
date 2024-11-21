@@ -22,8 +22,9 @@ public final class SimpleGUI {
 
     private final JFrame frame = new JFrame(TITLE);
     private final int PROPORTION = 3; 
-
+    
     public SimpleGUI(){
+        final SimpleController control = new SimpleController();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         final JPanel canvas = new JPanel(new BorderLayout());
@@ -47,6 +48,7 @@ public final class SimpleGUI {
 
             @Override
             public void actionPerformed(ActionEvent arg0) {
+                control.setNextString(field.getText());
                 System.out.println(field.getText());
             }
             
