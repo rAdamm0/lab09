@@ -12,23 +12,6 @@ public final class SimpleController implements Controller {
 
     private String next;
 
-    private String nameFile = "output.txt";
-    private String PATH = System.getProperty("user.home")+System.getProperty("file.separator")+nameFile;
-
-    private void updatePath(){
-        PATH = System.getProperty("user.home")+System.getProperty("file.separator")+nameFile;
-    }
-
-    public String setNameFile(String input){
-        return this.nameFile = input;
-    }
-
-    public String getPath(){
-        updatePath();
-        return this.PATH;
-    }
-
-
     @Override
     public boolean setNextString(String input) {
         this.next = input;
