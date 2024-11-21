@@ -1,9 +1,6 @@
 package it.unibo.mvc;
 
 import java.util.ArrayList;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  * 
@@ -13,7 +10,7 @@ public final class SimpleController implements Controller {
 
     private final ArrayList<String> his = new ArrayList<>();
 
-    //private String current;
+    private String next;
 
     private String nameFile = "output.txt";
     private String PATH = System.getProperty("user.home")+System.getProperty("file.separator")+nameFile;
@@ -31,35 +28,38 @@ public final class SimpleController implements Controller {
         return this.PATH;
     }
 
+
     @Override
-    public void setNextString(String input) {
-        try(final BufferedWriter w = new BufferedWriter(new FileWriter(this.PATH))) {
-            w.write(input);
-            w.newLine();
-            his.add(input);
-        } catch (IOException e) {
-            e.getStackTrace();
+    public boolean setNextString(String input) {
+        this.next = input;
+        if(this.next.equals(null)){
+            throw new IllegalStateException();
         }
+        return true;
     }
 
     @Override
     public String nexString() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nexString'");
+        if(this.next!=null){
+            return this.next;
+        }
+        throw new IllegalStateException();
     }
 
     @Override
     public ArrayList<String> history() {
-        return his;
+        ArrayList<String> temp=new ArrayList<>();
+        temp.addAll(his);
+        return temp;
     }
 
     @Override
-    public String currentString() {
-        if(!his.isEmpty()){
-           String m = his.getLast().toString();
-           return m;
-        }else{
-            throw new IllegalStateException("No history detected");
+    public void currentString() {
+        if(this.next != null){
+            his.add(this.next);
+            System.out.println(this.next);
+        } else {
+            throw new IllegalStateException();
         }
     }
 

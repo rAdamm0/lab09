@@ -49,7 +49,8 @@ public final class SimpleGUI {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 control.setNextString(field.getText());
-                System.out.println(field.getText());
+                control.currentString();
+                
             }
             
         });
