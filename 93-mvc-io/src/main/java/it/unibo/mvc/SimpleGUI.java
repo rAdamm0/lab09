@@ -59,6 +59,7 @@ public final class SimpleGUI {
         showHistory.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0){
+                history.setText("");
                 for(String s : control.history()){
                     history.append(s);
                     history.append("\n");
