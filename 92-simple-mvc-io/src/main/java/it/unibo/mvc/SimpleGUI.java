@@ -27,6 +27,7 @@ public final class SimpleGUI {
     public SimpleGUI() {
         /* JFrame finalization */
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("My first java graphical interface");
         /* JPanel Creation */
         JPanel canva = new JPanel();
         frame.setContentPane(canva);
