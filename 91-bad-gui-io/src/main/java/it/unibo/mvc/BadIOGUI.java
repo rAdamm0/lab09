@@ -52,6 +52,9 @@ public class BadIOGUI {
         hori.setLayout(new BoxLayout(hori, BoxLayout.LINE_AXIS));
         canvas.add(hori, BorderLayout.CENTER);
         hori.add(write);
+        final JButton read = new JButton("Read");
+        hori.add(read);
+
         /*
          * Handlers
          */
