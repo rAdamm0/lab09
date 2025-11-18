@@ -76,6 +76,14 @@ public class BadIOGUI {
                 }
             }
         });
+
+        /* EXERCISE */
+        read.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent ignored) {
+                System.out.println("Button Pressed");
+            }
+        });
     }
 
     private void display() {
