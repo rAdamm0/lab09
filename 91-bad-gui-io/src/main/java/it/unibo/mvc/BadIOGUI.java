@@ -46,6 +46,10 @@ public class BadIOGUI {
         canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        /* EXERCISE */
+        final JPanel hori = new JPanel();
+        hori.setLayout(new BoxLayout(hori, BoxLayout.LINE_AXIS));
         /*
          * Handlers
          */
@@ -100,6 +104,6 @@ public class BadIOGUI {
      * @param args ignored
      */
     public static void main(final String... args) {
-       new BadIOGUI().display();
+        new BadIOGUI().display();
     }
 }
